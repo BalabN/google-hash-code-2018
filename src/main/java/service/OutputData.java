@@ -29,6 +29,7 @@ public class OutputData {
                     ) {
                 output += " "+ID;
             }
+            output += "\n";
         }
         return output;
     }

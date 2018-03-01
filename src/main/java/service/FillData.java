@@ -32,7 +32,7 @@ public class FillData {
         World world = new World();
         String input = readFile("Items/" + fileName);
 
-        //System.out.println(input);
+       // System.out.println(input);
         //ceu array vse ceu string
         String[] inputArray = input.split("\n");
 
@@ -43,6 +43,7 @@ public class FillData {
         //Klici world z columna pa rowi
         world.setColumn(Integer.parseInt(params[1]));
         world.setRow(Integer.parseInt(params[0]));
+        world.setSteps(Integer.parseInt(params[5]));
 
         int numberOfRows = Integer.parseInt(params[0]);
         int numberOfColumns = Integer.parseInt(params[1]);

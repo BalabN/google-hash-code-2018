@@ -16,7 +16,7 @@ public class EfficiencyCalculator {
         return coeficient;
     }
 
-    private static int calculateDistanceBetweenPoints(Pair<Integer, Integer> point1, Pair<Integer, Integer> point2){
+    public static int calculateDistanceBetweenPoints(Pair<Integer, Integer> point1, Pair<Integer, Integer> point2){
         return Math.abs(point1.getKey() - point2.getKey()) + Math.abs(point1.getValue() - point2.getValue());
     }
 
