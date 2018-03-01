@@ -58,8 +58,8 @@ public class FillData {
             // iz [column,row]
             Ride ride = new Ride();
             ride.setRideId(i-1);
-            ride.setStartLocation(new Pair<Integer, Integer>(Integer.valueOf(paramsi[0]),Integer.valueOf(paramsi[1])));
-            ride.setEndLocation(new Pair<Integer, Integer>(Integer.valueOf(paramsi[0]),Integer.valueOf(paramsi[1])));
+            ride.setStartLocation(new Pair<>(Integer.valueOf(paramsi[0]), Integer.valueOf(paramsi[1])));
+            ride.setEndLocation(new Pair<>(Integer.valueOf(paramsi[0]), Integer.valueOf(paramsi[1])));
             ride.setEarlyStartTime(Integer.valueOf(paramsi[4]));
             ride.setDeadLineTime(Integer.valueOf(paramsi[5]));
             rides.add(ride);

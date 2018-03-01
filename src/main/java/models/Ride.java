@@ -52,5 +52,12 @@ public class Ride {
         this.endLocation = endLocation;
     }
 
-    public int getId() {return this.rideId; }
+
+    public int getRideId() {
+        return rideId;
+    }
+
+    public void setRideId(int rideId) {
+        this.rideId = rideId;
+    }
 }
