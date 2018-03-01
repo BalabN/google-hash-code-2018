@@ -8,7 +8,7 @@ public class Ride {
     private int deadLineTime;
     private Pair<Integer, Integer> startLocation;
     private Pair<Integer, Integer> endLocation;
-    private int id;
+    private int rideId;
 
     public Ride(){}
 
@@ -17,7 +17,7 @@ public class Ride {
         this.deadLineTime = deadLineTime;
         this.startLocation = startLocation;
         this.endLocation = endLocation;
-        this.id = id;
+        this.rideId = rideId;
     }
 
     public int getEarlyStartTime() {
@@ -52,5 +52,5 @@ public class Ride {
         this.endLocation = endLocation;
     }
 
-    public int getId() {return this.id; }
+    public int getId() {return this.rideId; }
 }
