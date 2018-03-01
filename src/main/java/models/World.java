@@ -78,4 +78,8 @@ public class World {
                 ", steps=" + steps +
                 '}';
     }
+
+    public void printResult() {
+        
+    }
 }
