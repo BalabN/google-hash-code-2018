@@ -12,9 +12,10 @@ public class Ride {
 
     public Ride(){}
 
-    public Ride (int earlyStartTime, int deadLineTime, Pair<Integer, Integer> startLocation, Pair<Integer, Integer> endLocation){
+    public Ride (int earlyStartTime, int deadLineTime,int rideId;, Pair<Integer, Integer> startLocation, Pair<Integer, Integer> endLocation){
         this.earlyStartTime = earlyStartTime;
         this.deadLineTime = deadLineTime;
+        this.rideId = rideId;
         this.startLocation = startLocation;
         this.endLocation = endLocation;
     }

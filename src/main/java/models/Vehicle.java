@@ -13,7 +13,8 @@ public class Vehicle {
 
     public Vehicle(){}
 
-    public Vehicle(Pair<Integer, Integer> location, int numOfRides, List<Integer> rideIds, int availableIn){
+    public Vehicle(int vehicleId,Pair<Integer, Integer> location, int numOfRides, List<Integer> rideIds, int availableIn){
+        this.vehicleId = vehicleId;
         this.location = location;
         this.numOfRides = numOfRides;
         this.rideIds = rideIds;
