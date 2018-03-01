@@ -67,5 +67,15 @@ public class World {
         this.steps = steps;
     }
 
-
+    @Override
+    public String toString() {
+        return "World{" +
+                "rows=" + rows +
+                ", cols=" + cols +
+                ", cars=" + cars.size() +
+                ", rides=" + rides +
+                ", bonus=" + bonus +
+                ", steps=" + steps +
+                '}';
+    }
 }
