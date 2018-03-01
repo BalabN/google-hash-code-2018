@@ -6,6 +6,7 @@ import javafx.util.Pair;
 public class Ride {
     private int earlyStartTime;
     private int deadLineTime;
+    private int rideId;
     private Pair<Integer, Integer> startLocation;
     private Pair<Integer, Integer> endLocation;
 
@@ -48,5 +49,13 @@ public class Ride {
 
     public void setEndLocation(Pair<Integer, Integer> endLocation) {
         this.endLocation = endLocation;
+    }
+
+    public int getRideId() {
+        return rideId;
+    }
+
+    public void setRideId(int rideId) {
+        this.rideId = rideId;
     }
 }

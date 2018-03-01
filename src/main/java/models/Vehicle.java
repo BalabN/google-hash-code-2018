@@ -5,6 +5,7 @@ import javafx.util.Pair;
 import java.util.List;
 
 public class Vehicle {
+    private int vehicleId;
     private Pair<Integer, Integer> location;
     private int numOfRides;
     private List<Integer> rideIds;
@@ -51,5 +52,13 @@ public class Vehicle {
 
     public void setAvailableIn(int availableIn) {
         this.availableIn = availableIn;
+    }
+
+    public int getVehicleId() {
+        return vehicleId;
+    }
+
+    public void setVehicleId(int vehicleId) {
+        this.vehicleId = vehicleId;
     }
 }
