@@ -1,11 +1,14 @@
 package service;
 
+import javafx.util.Pair;
 import models.Ride;
 import models.World;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class fillData {
     static String readFile(String fileName) throws IOException {
@@ -29,7 +32,7 @@ public class fillData {
         String input = readFile("Items/" + fileName);
 
 
-//ceu array vse ceu string
+        //ceu array vse ceu string
         String[] inputArray = input.split("\n");
 
         //Basic data
@@ -37,7 +40,8 @@ public class fillData {
         String[] params = inputArray[0].split(" ");
 
         //Klici world z columna pa rowi
-        world.setColumn(Integer.parseInt(params[0]));
+        world.setColumn(Integer.parseInt(params[1]));
+        world.setRow(Integer.parseInt(params[0]));
 
         int numberOfRows = Integer.parseInt(params[0]);
         int numberOfColumns = Integer.parseInt(params[1]);
@@ -46,20 +50,20 @@ public class fillData {
         int Bonus = Integer.parseInt(params[4]);
         int Steps = Integer.parseInt(params[5]);
 
+        List<Ride> rides = new ArrayList<Ride>();
         // Za vsak ride gres cez ride
         for (int i = 1; i < numberOfRides; i++) {
+            String[] paramsi = inputArray[i].split(" ");
             // iz [column,row]
             Ride ride = new Ride();
-            ride.set
-            CacheServer cs = new CacheServer();
-            cs.setIndex(i);
-            cs.setMaxSize(capacityOfCaches);
-            dc.addCs(cs);
+            ride.setStartLocation(new Pair<Integer, Integer>(Integer.valueOf(paramsi[0]),Integer.valueOf(paramsi[1])));
+            ride.setEndLocation(new Pair<Integer, Integer>(Integer.valueOf(paramsi[0]),Integer.valueOf(paramsi[1])));
+            ride.setEarlyStartTime(Integer.valueOf(paramsi[4]));
+            ride.setDeadLineTime(Integer.valueOf(paramsi[5]));
+            rides.add(ride);
         }
 
-        int counterOfEndpoints = 0;
-        int nextEndpointJump = 0;
-        int counterOfRequests = 0;
+
 
 
     }
