@@ -10,24 +10,19 @@ import service.ServiceGenerator;
 public class Main {
 
     public static void main(String[] args) {
-        BitstampService bitstampService = ServiceGenerator.createService(BitstampService.class, ServiceGenerator.ApiEndpoint.BITSTAMP);
 
-        Response<List<Transaction>> response = null;
-        try {
-            response = bitstampService.getTransactions().execute();
-        } catch (Exception e) {
-            e.printStackTrace();
+        //Get data from file
+        // World world = new World(Input);
+
+        // push data to Computin EffieciencyCalculator(Ride, List<Vehicle>) -- Available Rides and vehicle
+        // evaluate rides and k forall -> the smalles K is a pair -> ride - veh
+
+        List<int, Pair<int,float>> K = new List<int>();
+        for (Ride:World.getRides()
+             ) {
+
         }
 
-        if (response != null && response.isSuccessful()) {
-            List<Transaction> transaction = response.body();
-            System.out.println(response.body());
-            LinearRegression linearRegression = new LinearRegression(transaction);
-            NaiveBayes naiveBayes = new NaiveBayes();
-        } else if (response != null) {
-            System.out.println("Response failed with error code = " + response.code() + "; message = " + response.errorBody());
-        } else {
-            System.out.println("Response = null");
-        }
+        //// add to vehicle -> number of rides + 1 and id of ride
     }
 }
