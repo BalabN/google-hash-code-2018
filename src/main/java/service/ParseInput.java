@@ -18,9 +18,8 @@ public class ParseInput {
 
     public static World parseInput(String inputFileName) throws IOException{
         System.out.println("Reading file " + inputFileName);
-        List<String> content = new ArrayList<String>();
         Stream<String> stream = Files.lines(Paths.get(inputFileName));
-        content = stream.collect(Collectors.toList());
+        List<String> content = stream.collect(Collectors.toList());
         String[] firstLine = content.get(0).split(" ");
         int rows = Integer.parseInt(firstLine[0]);
         int cols = Integer.parseInt(firstLine[1]);

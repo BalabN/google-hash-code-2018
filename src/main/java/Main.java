@@ -21,9 +21,7 @@ public class Main {
 
         for (int i = 0; i < world.getSteps(); i++) {
             for (Car car : world.getCars()) {
-                for (Ride ride : world.getRides()) {
-                    car.calculateCoefficient(ride, i);
-                }
+                car.calculateCoefficient(world.getRides(), i);
             }
 
 //            int minK = world.getCars().stream().mapto(Car::getK).min();

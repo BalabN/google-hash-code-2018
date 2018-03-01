@@ -41,13 +41,19 @@ public class Car {
         rides.add(ride);
     }
 
-    public void calculateCoefficient(Ride ride, int worldStep) {
-        if (!isDriving) {
-            k = (ride.getEarliestStart() - worldStep) +
-            ((MathUtils.getMD(currentPosition, ride.getRideStart()) + MathUtils.getMD(ride.getRideStart(), ride.getRideEnd()))/(ride.getEarliestStart()-ride.getLatestFinish()));
-        } else {
-            k = (ride.getEarliestStart() - worldStep) +
-                (currentSteps+(MathUtils.getMD(currentPosition, ride.getRideStart()) + MathUtils.getMD(ride.getRideStart(), ride.getRideEnd()))/(ride.getEarliestStart()-ride.getLatestFinish()));
+    public void calculateCoefficient(List<Ride> rides, int worldStep) {
+        int tempK = 0;
+        for (Ride ride : rides) {
+            if (!isDriving) {
+                k = (ride.getEarliestStart() - worldStep) +
+                    ((MathUtils.getMD(currentPosition, ride.getRideStart()) + MathUtils.getMD(ride.getRideStart(), ride.getRideEnd())) /
+                     (ride.getEarliestStart() - ride.getLatestFinish()));
+            } else {
+                k = (ride.getEarliestStart() - worldStep) +
+                    (currentSteps +
+                     (MathUtils.getMD(currentPosition, ride.getRideStart()) + MathUtils.getMD(ride.getRideStart(), ride.getRideEnd())) /
+                     (ride.getEarliestStart() - ride.getLatestFinish()));
+            }
         }
     }
 
