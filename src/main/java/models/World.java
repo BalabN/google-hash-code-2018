@@ -72,7 +72,7 @@ public class World {
         return "World{" +
                 "rows=" + rows +
                 ", cols=" + cols +
-                ", cars=" + cars.size() +
+                ", cars=" + cars +
                 ", rides=" + rides +
                 ", bonus=" + bonus +
                 ", steps=" + steps +
@@ -80,6 +80,14 @@ public class World {
     }
 
     public void printResult() {
-        
+        for (int i = 0; i < cars.size(); i++) {
+            Car car = cars.get(i);
+            String carOutput = i + " ";
+            for (int j = 0; j < car.getRides().size(); i++) {
+                carOutput += car.getRides().get(j).getId();
+            }
+
+            System.out.println(carOutput);
+        }
     }
 }

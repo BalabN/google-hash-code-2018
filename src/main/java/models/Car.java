@@ -29,6 +29,10 @@ public class Car {
 
     }
 
+    public List<Ride> getRides() {
+        return rides;
+    }
+
     public float getK() {
         return k;
     }
