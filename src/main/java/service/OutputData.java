@@ -19,16 +19,16 @@ public class OutputData {
 //
 //    int vehicle2 = vehicle.getNumOfRides();
 //    String numOfRidesString = String.valueOf(vehicle2);
-    public static List<String> output(String blabla){
+    public static String output(List<Vehicle> vehicles){
         
-        List<String> output = new List<String>;
+       String output = "";
 
-        List<Vehicle> vehicles = new ArrayList<>();
-        for(Vehicle vehicle: List<Vehicle>){
-            Vehicle vehicle = new Vehicle();
-            vehicle.getNumOfRides();
-            vehicle.getRideIds();
-            vehicles.add(vehicle);
+        for(Vehicle vehicle: vehicles){
+            output += vehicle.getNumOfRides();
+            for (int ID:vehicle.getRideIds()
+                    ) {
+                output += " "+ID;
+            }
         }
         return output;
     }

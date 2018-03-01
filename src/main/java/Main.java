@@ -8,6 +8,7 @@ import models.Ride;
 import models.Vehicle;
 import models.World;
 import service.FillData;
+import service.OutputData;
 
 public class Main {
 
@@ -65,14 +66,16 @@ public class Main {
             world.setRide(rides);
         }
 
-        for (Vehicle veh:world.getVehicle()
-             ) {
-            System.out.println(veh.getNumOfRides() );
-            for (int ID:veh.getRideIds()
-                 ) {
-                System.out.println(" "+ID  );
-            }
-        }
+        System.out.println(OutputData.output(world.getVehicle()));
+
+//        for (Vehicle veh:world.getVehicle()
+//             ) {
+//            System.out.println(veh.getNumOfRides() );
+//            for (int ID:veh.getRideIds()
+//                 ) {
+//                System.out.println(" "+ID  );
+//            }
+//        }
         //// add to vehicle -> number of rides + 1 and id of ride
     }
 }
