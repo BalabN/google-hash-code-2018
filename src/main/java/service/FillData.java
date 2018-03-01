@@ -32,7 +32,7 @@ public class FillData {
         World world = new World();
         String input = readFile("Items/" + fileName);
 
-
+        //System.out.println(input);
         //ceu array vse ceu string
         String[] inputArray = input.split("\n");
 
@@ -53,8 +53,9 @@ public class FillData {
 
         List<Ride> rides = new ArrayList<Ride>();
         // Za vsak ride gres cez ride
-        for (int i = 1; i < numberOfRides; i++) {
+        for (int i = 1; i < numberOfRides + 1; i++) {
             String[] paramsi = inputArray[i].split(" ");
+            //System.out.println("jump i: " + i + " = " + inputArray[i].toString());
             // iz [column,row]
             Ride ride = new Ride();
             ride.setRideId(i-1);
@@ -64,6 +65,7 @@ public class FillData {
             ride.setDeadLineTime(Integer.valueOf(paramsi[5]));
             rides.add(ride);
         }
+        world.setRide(rides);
 
         List<Vehicle> vehicles = new ArrayList<>();
         for (int i = 0; i < numberOfVehicle; i++){
@@ -75,7 +77,7 @@ public class FillData {
             veh.setRideIds(new ArrayList<>());
             vehicles.add(veh);
         }
-
+        world.setVehicle(vehicles);
         return world;
     }
 }

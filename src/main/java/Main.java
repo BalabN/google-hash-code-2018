@@ -36,18 +36,43 @@ public class Main {
             }
         }
 
-        List<Pair<Integer, Pair<Integer,Float>>> K = new ArrayList<>();
-        for (Ride ride:world.getRide())
+
+        for (Vehicle veh:world.getVehicle())
         {
-           // List<Pair<Vehicle, Float>> KforRide = EfficiencyCalculator.CalculateCoeficient(ride, availableVehicles);
-            for (Vehicle veh: world.getVehicle())
-            {
-
+            float minK = 10;
+            int rideIdchosen = -1;
+            for (Ride ride:world.getRide()
+                 ) {
+                float K = EfficiencyCalculator.CalculateCoeficient(veh, ride);
+                if (K < minK){
+                    minK = K;
+                    rideIdchosen = ride.getRideId();
+                }
             }
-            //K.add(new Pair<Vehicle, Float>(ride.getRideId(), K);
 
-       }
+            veh.setNumOfRides(veh.getNumOfRides()+1);
+            List<Integer> rideIDs = veh.getRideIds();
+            rideIDs.add(rideIdchosen);
+            veh.setRideIds(rideIDs);
 
+            List<Ride> rides = world.getRide();
+            for (Ride ride1:rides
+                 ) {
+                if (ride1.getRideId() == rideIdchosen){
+                    rides.remove(ride1);
+                }
+            }
+            world.setRide(rides);
+        }
+
+        for (Vehicle veh:world.getVehicle()
+             ) {
+            System.out.println(veh.getNumOfRides() );
+            for (int ID:veh.getRideIds()
+                 ) {
+                System.out.println(" "+ID  );
+            }
+        }
         //// add to vehicle -> number of rides + 1 and id of ride
     }
 }
