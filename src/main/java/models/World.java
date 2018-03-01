@@ -10,8 +10,22 @@ public class World {
     private int numrides;
     private int bonus;
     private int steps;
-    private List<Vehicle> vehicle = vehicle;
-    private List<Ride> ride = ride;
+    private List<Vehicle> vehicle;
+    private List<Ride> ride ;
+
+    public World(){}
+
+    public World(int row, int column, int numvihicles, int numrides, int bonus , int steps,List<Vehicle> vehicle,List<Ride> ride ){
+        this.row = row;
+        this.column = column;
+        this.numvihicles = numvihicles;
+        this.numrides = numrides;
+        this.bonus = bonus;
+        this.steps = steps;
+        this.vehicle = vehicle;
+        this.ride = ride;
+
+    }
 
     public int getRow() {
         return row;

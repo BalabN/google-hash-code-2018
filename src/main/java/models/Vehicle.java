@@ -10,6 +10,14 @@ public class Vehicle {
     private List<Integer> rideIds;
     private int availableIn;
 
+    public Vehicle(){}
+
+    public Vehicle(Pair<Integer, Integer> location, int numOfRides, List<Integer> rideIds, int availableIn){
+        this.location = location;
+        this.numOfRides = numOfRides;
+        this.rideIds = rideIds;
+        this.availableIn = availableIn;
+    }
 
     public Pair<Integer, Integer> getLocation() {
         return location;
