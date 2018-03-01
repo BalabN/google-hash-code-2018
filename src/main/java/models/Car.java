@@ -46,6 +46,26 @@ public class Car {
     }
 
     private void updateCurrentPosition() {
-        
+        if(this.currentRideIndex <= -1) {
+            return;
+        }
+        Ride currentRide = this.rides.get(this.currentRideIndex);
+        Pair finalDestination = currentRide.getRideEnd();
+        int x = currentPosition.getFirst(), y = currentPosition.getSecond();
+        if (((Integer) finalDestination.getFirst()) == currentPosition.getFirst()) {
+
+        } else if (((Integer) finalDestination.getFirst()) > currentPosition.getFirst()) {
+            x += 1;
+        } else {
+            x -= 1;
+        }
+        if(((Integer) finalDestination.getSecond()) == currentPosition.getSecond()) {
+
+        } else if (((Integer) finalDestination.getSecond()) > currentPosition.getSecond()) {
+            y += 1;
+        } else {
+            y -= 1;
+        }
+        this.currentPosition = new Pair<>(x, y);
     }
 }
