@@ -12,6 +12,7 @@ public class World {
     private int steps;
     private List<Vehicle> vehicle;
     private List<Ride> ride ;
+    private int timer;
 
     public World(){}
 
@@ -24,6 +25,7 @@ public class World {
         this.steps = steps;
         this.vehicle = vehicle;
         this.ride = ride;
+        this.timer = 0;
 
     }
 
