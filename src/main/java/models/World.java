@@ -58,7 +58,13 @@ public class World {
     public List<Vehicle> getVehicle() {
         return this.vehicle;
     }
+    public void setRide(List<Ride> ride) {
+        this.ride = ride;
+    }
 
+    public List<Ride> getRide() {
+        return this.ride;
+    }
 
 
 }
