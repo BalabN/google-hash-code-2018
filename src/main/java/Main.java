@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.util.Pair;
+import logic.EfficiencyCalculator;
 import models.Ride;
 import models.Vehicle;
 import models.World;
@@ -38,12 +39,13 @@ public class Main {
         List<Pair<Integer, Pair<Integer,Float>>> K = new ArrayList<>();
         for (Ride ride:world.getRide())
         {
-           // List<Pair<Vehicle, Float>> KforRide = CalculateDistanceBetweenRidesAndCars(ride.getID(), availableVehicles);
-//            for (Vehicle veh: world.getVehicle())
-//            {
-//
-//            }
-//            K.add()
+           // List<Pair<Vehicle, Float>> KforRide = EfficiencyCalculator.CalculateCoeficient(ride, availableVehicles);
+            for (Vehicle veh: world.getVehicle())
+            {
+
+            }
+            //K.add(new Pair<Vehicle, Float>(ride.getRideId(), K);
+
        }
 
         //// add to vehicle -> number of rides + 1 and id of ride

@@ -4,25 +4,16 @@ import javafx.util.Pair;
 import models.Ride;
 import models.Vehicle;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class EfficiencyCalculator {
 
-    public static List<Pair<Vehicle, Float>> CalculateDistanceBetweenRidesAndCars(Ride ride, List<Vehicle> cars){
+    public static float CalculateCoeficient(Vehicle vehicle, Ride ride){
 
-        List<Pair<Vehicle, Float>> carsAndCoeficients = new ArrayList<>();
-        Pair<Vehicle, Float> newCar;
+        int distanceFromCarToStart = calculateDistanceBetweenPoints(vehicle.getLocation(), ride.getStartLocation());
+        int lengthOfRide = calculateDistanceBetweenPoints(ride.getStartLocation(), ride.getEndLocation());
+        int ttl = ride.getDeadLineTime() - ride.getEarlyStartTime();
+        float coeficient = calculateCoeficientBetweenPoints(distanceFromCarToStart, lengthOfRide, ttl);
 
-        for (int i=0; i<cars.size(); i++){
-            int distanceFromCarToStart = calculateDistanceBetweenPoints(cars.get(i).getLocation(), ride.getStartLocation());
-            int lengthOfRide = calculateDistanceBetweenPoints(ride.getStartLocation(), ride.getEndLocation());
-            int ttl = ride.getDeadLineTime() - ride.getEarlyStartTime();
-            float coeficient = calculateCoeficientBetweenPoints(distanceFromCarToStart, lengthOfRide, ttl);
-            newCar = new Pair<>(cars.get(i), coeficient);
-            carsAndCoeficients.add(newCar);
-        }
-        return carsAndCoeficients;
+        return coeficient;
     }
 
     private static int calculateDistanceBetweenPoints(Pair<Integer, Integer> point1, Pair<Integer, Integer> point2){
