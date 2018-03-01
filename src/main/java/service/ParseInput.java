@@ -35,8 +35,8 @@ public class ParseInput {
         }
         Iterator<String> iterator = content.iterator();
         iterator.next();
-        while(iterator.hasNext()) {
-            rides.add(new Ride(iterator.next()));
+        for(int i = 0; iterator.hasNext(); i++) {
+            rides.add(new Ride(iterator.next(), i));
         }
         World w = new World(rows, cols, cars, rides, bonus, steps);
         System.out.println(w.toString());
