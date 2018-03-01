@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "tid",
         "price",
 })
-public class Transaction {
+public class World {
 
     @JsonProperty("date")
     private String date;
