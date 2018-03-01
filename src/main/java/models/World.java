@@ -80,6 +80,6 @@ public class World {
     }
 
     public void printResult() {
-        
+
     }
 }
