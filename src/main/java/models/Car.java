@@ -9,52 +9,46 @@ import utlis.Pair;
 public class Car {
     private Pair<Integer, Integer> currentPosition = new Pair<>(0,0);
     private int currentSteps = -1;
-    private List<Ride> rides = new ArrayList<>();
+    private List<Pair<Ride, Float>> rides = new ArrayList<>();
     private int distanceToStart;
     private int distanceToEnd;
     private int currentRideIndex = -1;
     private boolean isDriving;
     private int hasPassenger;
-    float k;
-
-    public Car(Pair<Integer, Integer> currentPosition, int distanceToStart, int distanceToEnd, float k) {
-        this.currentPosition = currentPosition;
-        this.distanceToStart = distanceToStart;
-        this.distanceToEnd = distanceToEnd;
-        this.k = k;
-
-    }
 
     public Car() {
-
     }
 
-    public List<Ride> getRides() {
-        return rides;
+
+    public void addRide(Ride ride, Float k) {
+        rides.add(new Pair<>(ride, k));
     }
 
-    public float getK() {
-        return k;
-    }
-
-    public void addRide(Ride ride) {
-        rides.add(ride);
-    }
-
-    public void calculateCoefficient(List<Ride> rides, int worldStep) {
-        int tempK = 0;
+    public Ride calculateCoefficient(List<Ride> rides, int worldStep) {
+        float tempK;
+        float k = Integer.MAX_VALUE;
+        Ride minRide = null;
         for (Ride ride : rides) {
             if (!isDriving) {
-                k = (ride.getEarliestStart() - worldStep) +
+                tempK = (ride.getEarliestStart() - worldStep) +
                     ((MathUtils.getMD(currentPosition, ride.getRideStart()) + MathUtils.getMD(ride.getRideStart(), ride.getRideEnd())) /
                      (ride.getEarliestStart() - ride.getLatestFinish()));
             } else {
-                k = (ride.getEarliestStart() - worldStep) +
+                tempK = (ride.getEarliestStart() - worldStep) +
                     (currentSteps +
                      (MathUtils.getMD(currentPosition, ride.getRideStart()) + MathUtils.getMD(ride.getRideStart(), ride.getRideEnd())) /
                      (ride.getEarliestStart() - ride.getLatestFinish()));
             }
+
+            if (tempK < k) {
+                k = tempK;
+                minRide = ride;
+            }
         }
+        if (minRide != null) {
+            addRide(minRide, k);
+        }
+        return minRide;
     }
 
     public void nextStep() {
@@ -69,7 +63,7 @@ public class Car {
         if(this.currentRideIndex <= -1) {
             return;
         }
-        Ride currentRide = this.rides.get(this.currentRideIndex);
+        Ride currentRide = this.rides.get(this.currentRideIndex).getFirst();
         Pair finalDestination = currentRide.getRideEnd();
         int x = currentPosition.getFirst(), y = currentPosition.getSecond();
         if (((Integer) finalDestination.getFirst()) < currentPosition.getFirst()) {
@@ -85,5 +79,9 @@ public class Car {
         }
 
         this.currentPosition = new Pair<>(x, y);
+    }
+
+    public List<Pair<Ride, Float>> getRides() {
+        return rides;
     }
 }
